@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SME
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shared_memory

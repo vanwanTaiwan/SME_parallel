@@ -1,0 +1,8 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v,1607000838,verilog,,C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v,,SME,,,,,,,,
+C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v,1607000932,verilog,,,,shared_memory,,,,,,,,
+C:/Users/Alan/Desktop/git/SME_parallel/test_bench/sme_tb_term.sv,1606996229,systemVerilog,,,,$unit_sme_tb_term_sv;testfixture,,,,,,,,
+C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
