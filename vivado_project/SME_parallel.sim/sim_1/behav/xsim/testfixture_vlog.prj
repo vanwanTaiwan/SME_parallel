@@ -1,5 +1,6 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../../src/PE_slave.v" \
 "../../../../../src/SME.v" \
 "../../../../../src/shared_memory.v" \
 

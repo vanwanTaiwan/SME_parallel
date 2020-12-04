@@ -2,10 +2,10 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Dec  4 12:54:54 2020
-# Process ID: 6152
+# Start of session at: Thu Dec  3 20:19:16 2020
+# Process ID: 14188
 # Current directory: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7792 C:\Users\Alan\Desktop\git\SME_parallel\vivado_project\SME_parallel.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14312 C:\Users\Alan\Desktop\git\SME_parallel\vivado_project\SME_parallel.xpr
 # Log file: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/vivado.log
 # Journal file: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project\vivado.jou
 #-----------------------------------------------------------
@@ -15,7 +15,36 @@ update_compile_order -fileset sources_1
 launch_simulation
 source testfixture.tcl
 add_wave {{/testfixture/u_SME/s1}} 
-current_wave_config {Untitled 2}
-add_wave {{/testfixture/u_SME/ps1}} 
+run 10 us
+run 10 us
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source testfixture.tcl
+add_wave {{/testfixture/u_SME/s1}} 
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source testfixture.tcl
+relaunch_sim
+relaunch_sim
+add_wave {{/testfixture/u_SME/s1}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+add_wave {{/testfixture/u_SME/s1}} 
+relaunch_sim
+relaunch_sim
 relaunch_sim
 close_sim
