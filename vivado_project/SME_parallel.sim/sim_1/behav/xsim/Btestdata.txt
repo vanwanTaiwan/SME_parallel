@@ -1,5 +1,5 @@
 str:1:abcdijk lmnop q rstuv
-pat:1:0:00:1234
+pat:1:0:00:12341231
 pat:2:1:00:abcd
 pat:3:1:03:dijk
 pat:4:0:00:pqrst

@@ -1,11 +1,6 @@
-`define BYTE 8
-`define NUM_SLAVE 4
-`define MAX_STRING 32
-  `define MAX_STR_ADD 5
-`define MAX_PATTERN 8
-  `define MAX_PAT_ADD 3
+`include "SME_spec_param.v"
 
-module pe_slave(clk, reset, str_input, pat_input, input_valid, start_idx, process_2idx, output_valid, match, match_idx);
+module pe_slave(clk, reset, str_input, pat_input, input_valid, start_idx, process_2idx, ff_result, output_valid, match, match_idx);
 input clk;
 input reset;
 input [`MAX_STRING * `BYTE - 1 : 0] str_input;
@@ -13,6 +8,7 @@ input [`MAX_PATTERN * `BYTE - 1 : 0] pat_input;
 input input_valid;
 input [`MAX_STR_ADD - 1 : 0] start_idx;
 input [`MAX_STR_ADD - 1 : 0] process_2idx;
+input [`MAX_PAT_ADD * `MAX_PATTERN - 1 : 0] ff_result;
 
 output reg output_valid;
 output reg match;
@@ -39,7 +35,7 @@ end
 
 always@(*)
 begin
-  case(currnet_st)
+  case(current_st)
   IDLE_ST: if(input_valid) next_st = PRE_ST;
   endcase
 end

@@ -1,11 +1,6 @@
-`define BYTE 8
-`define NUM_SLAVE 4
-`define MAX_STRING 32
-  `define MAX_STR_ADD 5
-`define MAX_PATTERN 8
-  `define MAX_PAT_ADD 3
+`include "SME_spec_param.v"
 
-module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_last_idx, pat_last_idx, valid);
+module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_last_idx, pat_last_idx, ff_result, valid);
   input clk;
   input reset;
   input [`BYTE - 1:0] w_data;
@@ -16,9 +11,9 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
   output reg [`MAX_PATTERN * `BYTE - 1 : 0] pat_reg;
   output reg [`MAX_STR_ADD - 1: 0] str_last_idx;
   output reg [`MAX_PAT_ADD - 1: 0] pat_last_idx;
+  output [`MAX_PAT_ADD * `MAX_PATTERN - 1 : 0] ff_result;
   output reg valid;
 //---------------------input/output---------------------//
-
   integer i, j;
   parameter sel_str_reg = 0;
   parameter sel_pat_reg = 1;
@@ -28,8 +23,19 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
   reg [2:0] active;
     localparam NON_READ = 0;
     localparam READING = 1;
-    localparam DONE = 2;
+    localparam FF_CAL = 2;
+    localparam DONE = 3;
 
+  reg read_done;
+
+  wire ff_valid;
+  DP_FailFunc dp1(.clk(clk), 
+                  .reset(reset), 
+                  .i_valid(read_done), 
+                  .pattern(pat_reg), 
+                  .last_pat_idx(pat_last_idx), 
+                  .o_fail_func(ff_result), 
+                  .o_valid(ff_valid));
 
   always@(posedge clk)
   begin
@@ -39,8 +45,9 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
         p_index <= 0;
         str_last_idx <= 0;
         pat_last_idx <= 0;
-        active <= 0;
+        active <= NON_READ;
         valid <= 0;
+        read_done <= 0;
 
         for(i = 0; i < (`MAX_STRING * `BYTE); i = i + 1)
         begin
@@ -56,17 +63,20 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
       else if(write)
       begin
         active <= READING;
+        read_done <= 0;
         valid <= 0;
         case(w_sel)
           sel_str_reg : begin str_reg[s_index * `BYTE +: `BYTE] <= w_data; s_index <= s_index + 1; str_last_idx <= s_index; end
           sel_pat_reg : begin pat_reg[p_index * `BYTE +: `BYTE] <= w_data; p_index <= p_index + 1; pat_last_idx <= p_index; end
+          default : ;
         endcase
       end
 
       else
       begin
-        if(active == READING) begin active <= DONE; valid <= 1; end
-        else active <= NON_READ;
+        if(active == READING) begin active <= FF_CAL; read_done <= 1; end
+        else if(active == FF_CAL)begin if(ff_valid) begin active <= DONE; valid <= 1; end end
+        else begin active <= NON_READ; end
 
         s_index <= 0;
         p_index <= 0;

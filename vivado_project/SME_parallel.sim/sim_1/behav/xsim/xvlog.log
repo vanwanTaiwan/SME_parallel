@@ -1,6 +1,8 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/PE_slave.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/DP_FailFunc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DP_FailFunc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/PE_slave.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe_slave
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/SME.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module SME
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module shared_memory
