@@ -15,11 +15,12 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
   reg done_flag;
   //---------------------control signal---------------------//
 
-  reg [2:0] current_st;
-  reg [2:0] next_st;
-    localparam IDLE_ST = 4'b001;
-    localparam CALCU_ST = 4'b010;
-    localparam DONE_ST = 4'b100;
+  localparam NUM_STATE = 3;
+  reg [NUM_STATE - 1:0] current_st;
+  reg [NUM_STATE - 1:0] next_st;
+    localparam IDLE_ST = 3'b001;
+    localparam CALCU_ST = 3'b010;
+    localparam DONE_ST = 3'b100;
   //---------------------FSM declare---------------------//
 
   integer i;
@@ -36,9 +37,9 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
   always@(*)
   begin
     case(current_st)
-    IDLE_ST : if(i_valid) next_st <= CALCU_ST; else next_st <= IDLE_ST;
-    CALCU_ST : if(done_flag) next_st <= DONE_ST; else next_st <= CALCU_ST;
-    DONE_ST : if(!i_valid) next_st <= IDLE_ST; else next_st <= DONE_ST;
+    IDLE_ST : if(i_valid) next_st = CALCU_ST; else next_st = IDLE_ST;
+    CALCU_ST : if(done_flag) next_st = DONE_ST; else next_st = CALCU_ST;
+    DONE_ST : if(!i_valid) next_st = IDLE_ST; else next_st = DONE_ST;
     default : ; // Do Nothing
     endcase
   end
@@ -46,15 +47,18 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
   //output syn. reset
   always@(posedge clk)
   begin
-    if(reset)
+    if(reset || (!i_valid) )
     begin
       o_valid <= 0;
-      
-      for(i = 0; i < (`MAX_PAT_ADD * `MAX_PATTERN); i = i + 1)
-      begin
-        o_fail_func[i] <= 0;
-      end
     end
+
+    else if(done_flag)
+    begin
+      o_valid <= 1;
+    end
+
+    else ;// Do Nothing
+
   end
 
   //main(state: CALCU_ST): (DP)failure function implement.
@@ -66,6 +70,11 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
       process_idx <= 0;
       done_flag <= 0;
       last_ff_map <= 0;
+
+      for(i = 0; i < (`MAX_PAT_ADD * `MAX_PATTERN); i = i + 1)
+      begin
+        o_fail_func[i] <= 0;
+      end
     end
 
     else if(current_st == CALCU_ST)

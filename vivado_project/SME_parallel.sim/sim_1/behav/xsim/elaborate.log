@@ -8,13 +8,12 @@ Starting simulation data flow analysis
 WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/SME.v" Line 3. Module SME doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v" Line 3. Module shared_memory doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/DP_FailFunc.v" Line 3. Module DP_FailFunc doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/PE_slave.v" Line 3. Module pe_slave doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling package xil_defaultlib.$unit_sme_tb_term_sv
 Compiling module xil_defaultlib.DP_FailFunc
 Compiling module xil_defaultlib.shared_memory
-Compiling module xil_defaultlib.pe_slave
+Compiling module xil_defaultlib.KMP_pe
 Compiling module xil_defaultlib.SME
 Compiling module xil_defaultlib.testfixture
 Compiling module xil_defaultlib.glbl

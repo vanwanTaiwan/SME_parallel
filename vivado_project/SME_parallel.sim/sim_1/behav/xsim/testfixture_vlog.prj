@@ -1,12 +1,12 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../../src/DP_FailFunc.v" \
-"../../../../../src/PE_slave.v" \
+"../../../../../src/KMP_pe.v" \
 "../../../../../src/SME.v" \
 "../../../../../src/shared_memory.v" \
 
 sv xil_defaultlib  \
-"../../../../../test_bench/sme_tb_term.sv" \
+"../../../../../test_bench/sme_tb.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

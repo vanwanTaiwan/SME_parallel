@@ -37,17 +37,25 @@ module SME(
   wire o_valid;
   wire s_match;
   wire [`MAX_STR_ADD - 1 : 0] s_match_idx;
-  pe_slave ps1(.clk(clk), 
+  KMP_pe pe1(.clk(clk), 
                .reset(reset), 
                .str_input(str), 
                .pat_input(pat), 
                .input_valid(input_valid), 
                .start_idx(5'b0), 
-               .process_2idx(str_last_index), 
+               .process_2idx(str_last_index),
+               .pat_last_idx(pat_last_index),
                .ff_result(ff_result),
                .output_valid(o_valid), 
                .match(s_match), 
                .match_idx(s_match_idx));
+
+  always@(*)
+  begin
+    valid = o_valid;
+    match = s_match;
+    match_index = s_match_idx;
+  end
 
 
 
