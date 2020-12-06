@@ -1,0 +1,227 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Dec  6 00:27:44 2020
+# Process ID: 1576
+# Current directory: C:/Users/USER/Desktop/git/SME_parallel/vivado_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3288 C:\Users\USER\Desktop\git\SME_parallel\vivado_project\SME_parallel.xpr
+# Log file: C:/Users/USER/Desktop/git/SME_parallel/vivado_project/vivado.log
+# Journal file: C:/Users/USER/Desktop/git/SME_parallel/vivado_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/USER/Desktop/git/SME_parallel/src/PE_slave.v'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 798.262 ; gain = 140.148
+update_compile_order -fileset sources_1
+add_files -norecurse C:/Users/USER/Desktop/git/SME_parallel/src/KMP_pe.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/USER/Desktop/git/SME_parallel/src/PE_slave.v] -no_script -reset -force -quiet
+remove_files  C:/Users/USER/Desktop/git/SME_parallel/src/PE_slave.v
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testfixture' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testfixture_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/DP_FailFunc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DP_FailFunc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/KMP_pe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KMP_pe
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/SME.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SME
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shared_memory
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+"xelab -wto 662c8cd79d1949a7937d4aea3a663f0b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testfixture_behav xil_defaultlib.testfixture xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 662c8cd79d1949a7937d4aea3a663f0b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testfixture_behav xil_defaultlib.testfixture xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/SME.v" Line 3. Module SME doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v" Line 3. Module shared_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/DP_FailFunc.v" Line 3. Module DP_FailFunc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/USER/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.DP_FailFunc
+Compiling module xil_defaultlib.shared_memory
+Compiling module xil_defaultlib.KMP_pe
+Compiling module xil_defaultlib.SME
+Compiling module xil_defaultlib.testfixture
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testfixture_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testfixture_behav -key {Behavioral:sim_1:Functional:testfixture} -tclbatch {testfixture.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source testfixture.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /testfixture/data was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/strnum was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/patnum was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/strdata was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/goldmatch_s was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/goldmatch_index_s was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 1000ns
+----------------------
+-- Simulation Start --
+----------------------
+  __________________________________________________________
+  == String 1  "abcdijk lmnop q rstuv"
+  -- Pattern 1  "12341231"
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testfixture_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 886.121 ; gain = 26.891
+run all
+       cycle 46, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "abcd"
+       cycle 5a, expect(1,00) , get(1,00) >> Pass
+  -- Pattern 3  "dijk"
+       cycle 71, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 4  "pqrst"
+       cycle 99, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "pqr.t"
+       cycle c1, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "c...k"
+       cycle e9, expect(1,02) , get(0,00) >> Fail
+  -- Pattern 7  "^lmno"
+       cycle 110, expect(1,08) , get(0,00) >> Fail
+  -- Pattern 8  "rstuv$"
+       cycle 139, expect(1,10) , get(0,00) >> Fail
+  -- Pattern 9  "^rmn"
+       cycle 15e, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "ijk l$"
+       cycle 188, expect(0,--) , get(0,--) >> Pass
+  -- Pattern b  "v"
+       cycle 18a, expect(1,14) , get(0,00) >> Fail
+  -- Pattern c  "lmnoprst"
+       cycle 1b8, expect(0,--) , get(0,--) >> Pass
+  -- Pattern d  "^ijk$"
+       cycle 1df, expect(0,--) , get(0,--) >> Pass
+  -- Pattern e  "^q$"
+       cycle 202, expect(1,0e) , get(0,00) >> Fail
+  __________________________________________________________
+  == String 2  "2x1=2 2x2=4 2x3=6"
+  -- Pattern 1  "^2.2.2"
+       cycle 238, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "2.2.2"
+       cycle 260, expect(1,04) , get(0,00) >> Fail
+  -- Pattern 3  "^2.2.4$"
+       cycle 287, expect(1,06) , get(0,00) >> Fail
+  -- Pattern 4  "."
+       cycle 289, expect(1,00) , get(0,00) >> Fail
+  -- Pattern 5  "^.."
+       cycle 2a4, expect(1,00) , get(0,00) >> Fail
+  -- Pattern 6  "^.$"
+       cycle 2c3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 7  "2.$"
+       cycle 2e7, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 8  "2x4=7"
+       cycle 30f, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "3=6-3"
+       cycle 332, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "1.2=2"
+       cycle 356, expect(0,--) , get(0,--) >> Pass
+  -- Pattern b  "2*2=4"
+       cycle 37e, expect(1,00) , get(0,00) >> Fail
+  __________________________________________________________
+  == String 3  "She sees cheese"
+  -- Pattern 1  "ees."
+       cycle 3ae, expect(1,05) , get(0,00) >> Fail
+  -- Pattern 2  "ees.$"
+       cycle 3d1, expect(1,0b) , get(0,00) >> Fail
+  -- Pattern 3  "e..se"
+       cycle 3f7, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 4  "e..ee$"
+       cycle 41f, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "^ees*"
+       cycle 440, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "hee*se"
+       cycle 465, expect(1,0a) , get(0,00) >> Fail
+  -- Pattern 7  "he.s"
+       cycle 486, expect(1,01) , get(0,00) >> Fail
+  -- Pattern 8  "*see$"
+       cycle 4a7, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "se*ce"
+       cycle 4ca, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 4  "But she said the butter's bitter"
+  -- Pattern 1  "sa*said"
+       cycle 523, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "b*tter"
+       cycle 559, expect(1,11) , get(0,00) >> Fail
+  -- Pattern 3  "b*tter$"
+       cycle 591, expect(1,11) , get(0,00) >> Fail
+  -- Pattern 4  "ut*r"
+       cycle 5c3, expect(1,01) , get(0,00) >> Fail
+  -- Pattern 5  "ut*tted"
+       cycle 5fb, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "^ut*tter"
+       cycle 633, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 7  "*tered"
+       cycle 667, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 5  "He threw three free throws"
+  -- Pattern 1  "thr*the$"
+       cycle 6b6, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "^thro*th"
+       cycle 6e8, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  ".ree th"
+       cycle 718, expect(1,0f) , get(0,00) >> Fail
+  -- Pattern 4  ".ree  fr"
+       cycle 74a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  ".ree *re"
+       cycle 77c, expect(1,0a) , get(0,00) >> Fail
+  -- Pattern 6  "re. thr"
+       cycle 7b0, expect(1,05) , get(0,00) >> Fail
+  -- Pattern 7  "ee*ee fr"
+       cycle 7e8, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 8  "ee*ee th"
+       cycle 820, expect(1,0c) , get(0,00) >> Fail
+  -- Pattern 9  "re*ee.$"
+       cycle 854, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "^...$"
+       cycle 880, expect(0,--) , get(0,--) >> Pass
+  -- Pattern b  "^....$"
+       cycle 8ae, expect(1,0f) , get(0,00) >> Fail
+----------------------------------
+-- Simulation finish            --
+-- cycle =2223 , Score =34       --
+----------------------------------
+$finish called at time : 44460 ns : File "C:/Users/USER/Desktop/git/SME_parallel/test_bench/sme_tb.sv" Line 201
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Dec  6 00:29:02 2020...

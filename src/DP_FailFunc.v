@@ -82,8 +82,6 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
       if(!done_flag)
       begin
         if(process_idx == 0)begin o_fail_func[2:0] <= 0; process_idx <= process_idx + 1; last_ff_map <= 0; end
-        else if(process_idx == last_pat_idx)begin process_idx <= 0; last_ff_map <= 0; done_flag <= 1; end
-
         else
         begin
           if(pattern[last_ff_map * `BYTE +: `BYTE] == pattern[process_idx * `BYTE +: `BYTE])
@@ -99,6 +97,7 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
             process_idx <= process_idx + 1;
           end
         end
+        if(process_idx == last_pat_idx)begin process_idx <= 0; last_ff_map <= 0; done_flag <= 1; end else ;
       end
     end
 
