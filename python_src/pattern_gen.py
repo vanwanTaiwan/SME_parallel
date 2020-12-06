@@ -5,12 +5,13 @@ NUM_STR_PAT = 6
 NUM_PAT_IN_SINGLE_STR = 10
 
 MAX_PAT_SIZE = 8
+MAX_STR_SIZE = 32
 
 MATCH_RATIO = 0.33
 DNA_TEMPLATE = ["A", "T", "C", "G"]
 
 def string_generator():
-    str_length = random.randint(9, 32)
+    str_length = random.randint(MAX_PAT_SIZE + 1, MAX_STR_SIZE)
     new_string = ""
     for i in range(str_length):
         new_string = new_string + DNA_TEMPLATE[random.randint(0,3)]

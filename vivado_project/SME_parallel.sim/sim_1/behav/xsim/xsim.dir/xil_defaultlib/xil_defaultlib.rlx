@@ -2,10 +2,11 @@
 2019.1
 May 24 2019
 15:06:07
+C:/Users/USER/Desktop/git/SME_parallel/src/Control_unit.v,1607248598,verilog,,C:/Users/USER/Desktop/git/SME_parallel/src/DP_FailFunc.v,C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,KMP_Control,,,,,,,,
 C:/Users/USER/Desktop/git/SME_parallel/src/DP_FailFunc.v,1607230447,verilog,,C:/Users/USER/Desktop/git/SME_parallel/src/KMP_pe.v,C:/Users/USER/Desktop/git/SME_parallel/src/parameter.v;C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,DP_FailFunc,,,,,,,,
 C:/Users/USER/Desktop/git/SME_parallel/src/KMP_pe.v,1607235977,verilog,,C:/Users/USER/Desktop/git/SME_parallel/src/SME.v,C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,KMP_pe,,,,,,,,
-C:/Users/USER/Desktop/git/SME_parallel/src/SME.v,1607185612,verilog,,C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v,C:/Users/USER/Desktop/git/SME_parallel/src/parameter.v;C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,SME,,,,,,,,
-C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,1607174308,verilog,,,,,,,,,,,,
+C:/Users/USER/Desktop/git/SME_parallel/src/SME.v,1607246568,verilog,,C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v,C:/Users/USER/Desktop/git/SME_parallel/src/parameter.v;C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,SME,,,,,,,,
+C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,1607239349,verilog,,,,,,,,,,,,
 C:/Users/USER/Desktop/git/SME_parallel/src/shared_memory.v,1607185769,verilog,,,C:/Users/USER/Desktop/git/SME_parallel/src/parameter.v;C:/Users/USER/Desktop/git/SME_parallel/src/SME_spec_param.v,shared_memory,,,,,,,,
-C:/Users/USER/Desktop/git/SME_parallel/test_bench/sme_tb.sv,1607236159,systemVerilog,,,,$unit_sme_tb_sv;testfixture,,,,,,,,
+C:/Users/USER/Desktop/git/SME_parallel/test_bench/sme_tb.sv,1607248754,systemVerilog,,,,$unit_sme_tb_sv;testfixture,,,,,,,,
 C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim/glbl.v,1607158106,verilog,,,,glbl,,,,,,,,

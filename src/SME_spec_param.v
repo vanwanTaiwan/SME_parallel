@@ -4,3 +4,6 @@
   `define MAX_STR_ADD 5
 `define MAX_PATTERN 8
   `define MAX_PAT_ADD 3
+
+`define NUM_PE 4
+  `define DIVIDE_SHIFT 2
