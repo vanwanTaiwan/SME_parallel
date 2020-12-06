@@ -106,7 +106,7 @@ module KMP_pe(clk, reset, str_input, pat_input, input_valid, start_idx, process_
       end
     end
 
-    else if(current_st == DONE_ST)
+    else if(current_st == DONE_ST && input_valid)
     begin
       output_valid <= 1;
     end

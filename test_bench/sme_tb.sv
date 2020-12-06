@@ -2,7 +2,7 @@
 `define CYCLE      20.0  
 `define SDFFILE    "./SME_syn.sdf"
 `define End_CYCLE  1000000
-`define PAT        "test_pattern1.txt"
+`define PAT        "test_pattern2.txt"
 module testfixture();
 
 integer linedata;
