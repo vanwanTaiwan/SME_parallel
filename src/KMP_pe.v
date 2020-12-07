@@ -40,13 +40,18 @@ module KMP_pe(clk, reset, str_input, pat_input, input_valid, start_idx, process_
   //FSM state next state change condition.
   always@(*)
   begin
-    case(current_st)
-    IDLE_ST: if(input_valid) next_st = INIT_PRO_IDX; else next_st = IDLE_ST;
-    INIT_PRO_IDX: next_st = COM_ST;
-    COM_ST: if(done) next_st = DONE_ST; else next_st = COM_ST;
-    DONE_ST: if(!input_valid) next_st = IDLE_ST; else next_st = DONE_ST;
-    default : ;// Do Nothing
-    endcase
+    if(reset)  next_st = IDLE_ST;
+
+    else
+    begin
+      case(current_st)
+        IDLE_ST: if(input_valid) next_st = INIT_PRO_IDX; else next_st = IDLE_ST;
+        INIT_PRO_IDX: next_st = COM_ST;
+        COM_ST: if(done) next_st = DONE_ST; else next_st = COM_ST;
+        DONE_ST: if(!input_valid) next_st = IDLE_ST; else next_st = DONE_ST;
+        default : ;// Do Nothing
+      endcase
+    end
   end
 
   //output syn. reset

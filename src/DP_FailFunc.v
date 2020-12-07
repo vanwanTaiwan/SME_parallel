@@ -36,12 +36,16 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
   //FSM state next state change condition.
   always@(*)
   begin
-    case(current_st)
-    IDLE_ST : if(i_valid) next_st = CALCU_ST; else next_st = IDLE_ST;
-    CALCU_ST : if(done_flag) next_st = DONE_ST; else next_st = CALCU_ST;
-    DONE_ST : if(!i_valid) next_st = IDLE_ST; else next_st = DONE_ST;
-    default : ; // Do Nothing
-    endcase
+    if(reset) next_st = IDLE_ST;
+    else
+    begin
+      case(current_st)
+        IDLE_ST : if(i_valid) next_st = CALCU_ST; else next_st = IDLE_ST;
+        CALCU_ST : if(done_flag) next_st = DONE_ST; else next_st = CALCU_ST;
+        DONE_ST : if(!i_valid) next_st = IDLE_ST; else next_st = DONE_ST;
+        default : ; // Do Nothing
+      endcase
+    end
   end
 
   //output syn. reset
