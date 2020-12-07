@@ -1,5 +1,5 @@
 `timescale 1ns/10ps
-`define CYCLE      20.0  
+`define CYCLE      10.0  
 `define SDFFILE    "./SME_syn.sdf"
 `define End_CYCLE  1000000
 `define PAT        "test_pattern5.txt"
