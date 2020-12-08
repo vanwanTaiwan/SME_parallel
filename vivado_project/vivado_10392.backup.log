@@ -1,0 +1,445 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Dec  7 13:53:27 2020
+# Process ID: 10392
+# Current directory: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10748 C:\Users\Alan\Desktop\git\SME_parallel\vivado_project\SME_parallel.xpr
+# Log file: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/vivado.log
+# Journal file: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/USER/Desktop/git/SME_parallel/vivado_project' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testfixture' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testfixture_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KMP_Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/DP_FailFunc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DP_FailFunc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KMP_pe
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SME
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shared_memory
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/git/SME_parallel/test_bench/sme_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testfixture
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+"xelab -wto 662c8cd79d1949a7937d4aea3a663f0b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testfixture_behav xil_defaultlib.testfixture xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 662c8cd79d1949a7937d4aea3a663f0b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testfixture_behav xil_defaultlib.testfixture xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v" Line 3. Module SME doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/control_unit.v" Line 4. Module KMP_Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v" Line 3. Module shared_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/DP_FailFunc.v" Line 3. Module DP_FailFunc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.KMP_Control
+Compiling module xil_defaultlib.DP_FailFunc
+Compiling module xil_defaultlib.shared_memory
+Compiling module xil_defaultlib.KMP_pe
+Compiling module xil_defaultlib.SME
+Compiling module xil_defaultlib.testfixture
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testfixture_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testfixture_behav -key {Behavioral:sim_1:Functional:testfixture} -tclbatch {testfixture.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source testfixture.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /testfixture/data was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/strnum was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/patnum was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/strdata was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/goldmatch_s was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /testfixture/goldmatch_index_s was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 1000ns
+----------------------
+-- Simulation Start --
+----------------------
+  __________________________________________________________
+  == String 1  "GCGTCCTAGCGATCACCGGGACACAGTGGCGC"
+  -- Pattern 1  "GACGA"
+       cycle 47, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "GGGGG"
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testfixture_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1147.398 ; gain = 6.582
+run all
+       cycle 6a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "T"
+       cycle 7d, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 4  "TCACC"
+       cycle 9e, expect(1,0c) , get(1,0c) >> Pass
+  -- Pattern 5  "TTAC"
+       cycle bc, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "ATCGGG"
+       cycle e1, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 7  "TCA"
+       cycle fc, expect(1,0c) , get(1,0c) >> Pass
+  -- Pattern 8  "CCTGG"
+       cycle 11f, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "GTGG"
+       cycle 13e, expect(1,19) , get(1,19) >> Pass
+  -- Pattern a  "TCCAAC"
+       cycle 162, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 2  "GACTTCATATGAGCT"
+  -- Pattern 1  "TTAG"
+       cycle 18a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "GGC"
+       cycle 1a0, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "AC"
+       cycle 1b2, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 4  "CTTCTA"
+       cycle 1d1, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "CTT"
+       cycle 1e6, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 6  "AG"
+       cycle 1fa, expect(1,0b) , get(1,0b) >> Pass
+  -- Pattern 7  "ACTTC"
+       cycle 216, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 8  "CGAC"
+       cycle 22e, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "TA"
+       cycle 242, expect(1,07) , get(1,07) >> Pass
+  -- Pattern a  "TTAGATTC"
+       cycle 269, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 3  "CGTACCGCGGGGGAGAAGCTTCC"
+  -- Pattern 1  "T"
+       cycle 290, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 2  "CCGC"
+       cycle 2ab, expect(1,04) , get(1,04) >> Pass
+  -- Pattern 3  "A"
+       cycle 2bb, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 4  "GCGACAG"
+       cycle 2e3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "GGG"
+       cycle 2fc, expect(1,08) , get(1,08) >> Pass
+  -- Pattern 6  "ACCGCGGG"
+       cycle 324, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 7  "GTA"
+       cycle 33e, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 8  "GGCCCGTT"
+       cycle 36a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "ACTCATTT"
+       cycle 392, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "GG"
+       cycle 3a8, expect(1,08) , get(1,08) >> Pass
+  __________________________________________________________
+  == String 4  "CTAATGCTCCCAAAC"
+  -- Pattern 1  "AGTCG"
+       cycle 3d3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "T"
+       cycle 3e1, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 3  "TATGGGC"
+       cycle 403, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 4  "GGACCTA"
+       cycle 424, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "CCC"
+       cycle 43a, expect(1,08) , get(1,08) >> Pass
+  -- Pattern 6  "TGTGCTC"
+       cycle 45c, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 7  "CA"
+       cycle 470, expect(1,0a) , get(1,0a) >> Pass
+  -- Pattern 8  "CAA"
+       cycle 486, expect(1,0a) , get(1,0a) >> Pass
+  -- Pattern 9  "GATTGAGA"
+       cycle 4aa, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "CA"
+       cycle 4be, expect(1,0a) , get(1,0a) >> Pass
+  __________________________________________________________
+  == String 5  "ATCGCGTTAGTCCTTACA"
+  -- Pattern 1  "CATTAGA"
+       cycle 4f3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "GG"
+       cycle 507, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "TACA"
+       cycle 521, expect(1,0e) , get(1,0e) >> Pass
+  -- Pattern 4  "ATCCGCCT"
+       cycle 547, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "CGCCTGC"
+       cycle 56a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "TT"
+       cycle 57e, expect(1,06) , get(1,06) >> Pass
+  -- Pattern 7  "CGC"
+       cycle 594, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 8  "GC"
+       cycle 5a7, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 9  "CCGCACG"
+       cycle 5ca, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "CCGG"
+       cycle 5e4, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 6  "ACACGGAAGCTTTGTAACT"
+  -- Pattern 1  "TTCAC"
+       cycle 615, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "ATGCACA"
+       cycle 63a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "ACG"
+       cycle 651, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 4  "G"
+       cycle 661, expect(1,04) , get(1,04) >> Pass
+  -- Pattern 5  "CG"
+       cycle 674, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 6  "GG"
+       cycle 687, expect(1,04) , get(1,04) >> Pass
+  -- Pattern 7  "C"
+       cycle 696, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 8  "TCCCAT"
+       cycle 6b8, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "TTCATG"
+       cycle 6da, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "TGT"
+       cycle 6f1, expect(1,0c) , get(1,0c) >> Pass
+----------------------------------
+-- Simulation finish, ALL PASS  --
+-- cycle =1778 , Score =122       --
+----------------------------------
+$finish called at time : 17780 ns : File "C:/Users/Alan/Desktop/git/SME_parallel/test_bench/sme_tb.sv" Line 201
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testfixture' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testfixture_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KMP_Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/DP_FailFunc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DP_FailFunc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KMP_pe
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SME
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shared_memory
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.sim/sim_1/behav/xsim'
+"xelab -wto 662c8cd79d1949a7937d4aea3a663f0b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testfixture_behav xil_defaultlib.testfixture xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 662c8cd79d1949a7937d4aea3a663f0b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testfixture_behav xil_defaultlib.testfixture xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/SME.v" Line 3. Module SME doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/control_unit.v" Line 4. Module KMP_Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/shared_memory.v" Line 3. Module shared_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/DP_FailFunc.v" Line 3. Module DP_FailFunc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Alan/Desktop/git/SME_parallel/src/KMP_pe.v" Line 3. Module KMP_pe doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.KMP_Control
+Compiling module xil_defaultlib.DP_FailFunc
+Compiling module xil_defaultlib.shared_memory
+Compiling module xil_defaultlib.KMP_pe
+Compiling module xil_defaultlib.SME
+Compiling module xil_defaultlib.testfixture
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testfixture_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+----------------------
+-- Simulation Start --
+----------------------
+  __________________________________________________________
+  == String 1  "GCGTCCTAGCGATCACCGGGACACAGTGGCGC"
+  -- Pattern 1  "GACGA"
+       cycle 47, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "GGGGG"
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1147.398 ; gain = 0.000
+run all
+       cycle 6a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "T"
+       cycle 7d, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 4  "TCACC"
+       cycle 9e, expect(1,0c) , get(1,0c) >> Pass
+  -- Pattern 5  "TTAC"
+       cycle bc, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "ATCGGG"
+       cycle e1, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 7  "TCA"
+       cycle fc, expect(1,0c) , get(1,0c) >> Pass
+  -- Pattern 8  "CCTGG"
+       cycle 11f, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "GTGG"
+       cycle 13e, expect(1,19) , get(1,19) >> Pass
+  -- Pattern a  "TCCAAC"
+       cycle 162, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 2  "GACTTCATATGAGCT"
+  -- Pattern 1  "TTAG"
+       cycle 18a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "GGC"
+       cycle 1a0, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "AC"
+       cycle 1b2, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 4  "CTTCTA"
+       cycle 1d1, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "CTT"
+       cycle 1e6, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 6  "AG"
+       cycle 1fa, expect(1,0b) , get(1,0b) >> Pass
+  -- Pattern 7  "ACTTC"
+       cycle 216, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 8  "CGAC"
+       cycle 22e, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "TA"
+       cycle 242, expect(1,07) , get(1,07) >> Pass
+  -- Pattern a  "TTAGATTC"
+       cycle 269, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 3  "CGTACCGCGGGGGAGAAGCTTCC"
+  -- Pattern 1  "T"
+       cycle 290, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 2  "CCGC"
+       cycle 2ab, expect(1,04) , get(1,04) >> Pass
+  -- Pattern 3  "A"
+       cycle 2bb, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 4  "GCGACAG"
+       cycle 2e3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "GGG"
+       cycle 2fc, expect(1,08) , get(1,08) >> Pass
+  -- Pattern 6  "ACCGCGGG"
+       cycle 324, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 7  "GTA"
+       cycle 33e, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 8  "GGCCCGTT"
+       cycle 36a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "ACTCATTT"
+       cycle 392, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "GG"
+       cycle 3a8, expect(1,08) , get(1,08) >> Pass
+  __________________________________________________________
+  == String 4  "CTAATGCTCCCAAAC"
+  -- Pattern 1  "AGTCG"
+       cycle 3d3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "T"
+       cycle 3e1, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 3  "TATGGGC"
+       cycle 403, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 4  "GGACCTA"
+       cycle 424, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "CCC"
+       cycle 43a, expect(1,08) , get(1,08) >> Pass
+  -- Pattern 6  "TGTGCTC"
+       cycle 45c, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 7  "CA"
+       cycle 470, expect(1,0a) , get(1,0a) >> Pass
+  -- Pattern 8  "CAA"
+       cycle 486, expect(1,0a) , get(1,0a) >> Pass
+  -- Pattern 9  "GATTGAGA"
+       cycle 4aa, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "CA"
+       cycle 4be, expect(1,0a) , get(1,0a) >> Pass
+  __________________________________________________________
+  == String 5  "ATCGCGTTAGTCCTTACA"
+  -- Pattern 1  "CATTAGA"
+       cycle 4f3, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "GG"
+       cycle 507, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "TACA"
+       cycle 521, expect(1,0e) , get(1,0e) >> Pass
+  -- Pattern 4  "ATCCGCCT"
+       cycle 547, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 5  "CGCCTGC"
+       cycle 56a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 6  "TT"
+       cycle 57e, expect(1,06) , get(1,06) >> Pass
+  -- Pattern 7  "CGC"
+       cycle 594, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 8  "GC"
+       cycle 5a7, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 9  "CCGCACG"
+       cycle 5ca, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "CCGG"
+       cycle 5e4, expect(0,--) , get(0,--) >> Pass
+  __________________________________________________________
+  == String 6  "ACACGGAAGCTTTGTAACT"
+  -- Pattern 1  "TTCAC"
+       cycle 615, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 2  "ATGCACA"
+       cycle 63a, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 3  "ACG"
+       cycle 651, expect(1,02) , get(1,02) >> Pass
+  -- Pattern 4  "G"
+       cycle 661, expect(1,04) , get(1,04) >> Pass
+  -- Pattern 5  "CG"
+       cycle 674, expect(1,03) , get(1,03) >> Pass
+  -- Pattern 6  "GG"
+       cycle 687, expect(1,04) , get(1,04) >> Pass
+  -- Pattern 7  "C"
+       cycle 696, expect(1,01) , get(1,01) >> Pass
+  -- Pattern 8  "TCCCAT"
+       cycle 6b8, expect(0,--) , get(0,--) >> Pass
+  -- Pattern 9  "TTCATG"
+       cycle 6da, expect(0,--) , get(0,--) >> Pass
+  -- Pattern a  "TGT"
+       cycle 6f1, expect(1,0c) , get(1,0c) >> Pass
+----------------------------------
+-- Simulation finish, ALL PASS  --
+-- cycle =1778 , Score =122       --
+----------------------------------
+$finish called at time : 17780 ns : File "C:/Users/Alan/Desktop/git/SME_parallel/test_bench/sme_tb.sv" Line 201
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Dec  7 14:11:15 2020...

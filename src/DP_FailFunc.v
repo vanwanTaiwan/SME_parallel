@@ -15,12 +15,12 @@ module DP_FailFunc(clk, reset, i_valid, pattern, last_pat_idx, o_fail_func, o_va
   reg done_flag;
   //---------------------control signal---------------------//
 
-  localparam NUM_STATE = 3;
+  localparam NUM_STATE = 2;
   reg [NUM_STATE - 1:0] current_st;
   reg [NUM_STATE - 1:0] next_st;
-    localparam IDLE_ST = 3'b001;
-    localparam CALCU_ST = 3'b010;
-    localparam DONE_ST = 3'b100;
+    localparam IDLE_ST = 2'b00;
+    localparam CALCU_ST = 2'b01;
+    localparam DONE_ST = 2'b10;
   //---------------------FSM declare---------------------//
 
   integer i;

@@ -23,6 +23,10 @@ output reg o_valid;
 output reg [`MAX_STR_ADD - 1 : 0] o_match_idx;
 //---------------------input/output---------------------//
 
+reg pe_done_distri;
+reg o_done;
+
+
 wire [`MAX_STR_ADD - 1: 0] num_part;
 assign num_part = (str_last_idx + 1) >> `DIVIDE_SHIFT;
 
@@ -54,15 +58,18 @@ begin
     process_2idx <= 0;
     o_valid <= 0;
     o_match_idx <= 0;
+    pe_done_distri <= 0;
+    o_done <= 0;
   end
 
   else
   begin
     if(input_valid)
     begin
+      if(pe_done_distri)begin pe_valid <= 1; pe_done_distri <= 0; end else ;
       if(remaining > pat_last_idx)
       begin
-        pe_valid <= 1;
+        pe_done_distri <= 1;
 
         start_idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 0;
         start_idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD] <= num_part + remaining - pat_last_idx;
@@ -76,7 +83,7 @@ begin
       end
       else
       begin
-        pe_valid <= 1;
+        pe_done_distri <= 1;
 
         start_idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 0;
         start_idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD] <= num_part;
@@ -94,23 +101,27 @@ begin
       pe_valid <= 0;
       start_idx <= 0;
       process_2idx <= 0;
+      pe_done_distri <= 0;
     end
 
     if(i_match_valid == {`NUM_PE{1'b1}} && input_valid)
     begin
       if(!o_match)
       begin
-        o_valid <= 1;
+        o_done <= 1;
         o_match_idx <= 0;
       end
       else
       begin
-        o_valid <= 1;
+        o_done <= 1;
         o_match_idx <= compare_result;
       end
+      if(o_done)begin o_valid <= 1; o_done <= 0; end else o_valid <= 0;
     end
+
     else
     begin
+      o_done <= 0;
       o_valid <= 0;
       o_match_idx <= 0;
     end

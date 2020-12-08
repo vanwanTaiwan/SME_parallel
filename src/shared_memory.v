@@ -20,7 +20,7 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
 
   reg [`MAX_STR_ADD - 1 : 0] s_index;
   reg [`MAX_PAT_ADD - 1 : 0] p_index;
-  reg [2:0] active;
+  reg [1:0] active;
     localparam NON_READ = 0;
     localparam READING = 1;
     localparam FF_CAL = 2;
@@ -66,8 +66,8 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
         read_done <= 0;
         valid <= 0;
         case(w_sel)
-          sel_str_reg : begin str_reg[s_index * `BYTE +: `BYTE] <= w_data; s_index <= s_index + 1; str_last_idx <= s_index; end
-          sel_pat_reg : begin pat_reg[p_index * `BYTE +: `BYTE] <= w_data; p_index <= p_index + 1; pat_last_idx <= p_index; end
+          sel_str_reg : begin str_reg[s_index * `BYTE +: `BYTE] <= w_data; s_index <= s_index + 1; str_last_idx <= s_index; p_index <= p_index; pat_last_idx <= pat_last_idx; end
+          sel_pat_reg : begin pat_reg[p_index * `BYTE +: `BYTE] <= w_data; p_index <= p_index + 1; pat_last_idx <= p_index; s_index <= s_index; str_last_idx <= str_last_idx; end
           default : ;
         endcase
       end
@@ -75,7 +75,8 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
       else
       begin
         if(active == READING) begin active <= FF_CAL; read_done <= 1; end
-        else if(active == FF_CAL)begin if(ff_valid) begin active <= DONE; valid <= 1; end end
+        else if(active == FF_CAL)begin if(ff_valid) begin active <= DONE;  end end
+        else if(active == DONE) begin active <= NON_READ; valid <= 1; end
         else begin active <= NON_READ; end
 
         s_index <= 0;

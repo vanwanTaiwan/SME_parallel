@@ -16,13 +16,13 @@ module KMP_pe(clk, reset, str_input, pat_input, input_valid, start_idx, process_
   output reg [`MAX_STR_ADD - 1 : 0] match_idx;
   //---------------------input/output---------------------//
 
-  localparam NUM_STATE = 4;
+  localparam NUM_STATE = 3;
   reg [NUM_STATE - 1 : 0] current_st;
   reg [NUM_STATE - 1 : 0] next_st;
-    localparam IDLE_ST = 4'b0001;
-    localparam INIT_PRO_IDX = 4'b0010;
-    localparam COM_ST = 4'b0100;
-    localparam DONE_ST = 4'b1000;
+    localparam IDLE_ST = 3'b000;
+    localparam INIT_PRO_IDX = 3'b001;
+    localparam COM_ST = 3'b010;
+    localparam DONE_ST = 3'b100;
   //---------------------FSM PARM---------------------//
 
   reg done;
