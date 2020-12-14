@@ -20,11 +20,12 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
 
   reg [`MAX_STR_ADD - 1 : 0] s_index;
   reg [`MAX_PAT_ADD - 1 : 0] p_index;
-  reg [1:0] active;
-    localparam NON_READ = 0;
-    localparam READING = 1;
-    localparam FF_CAL = 2;
-    localparam DONE = 3;
+  reg [1:0] current_st;
+  reg [1:0] next_st;
+    localparam NON_READ = 2'd0;
+    localparam READING = 2'd1;
+    localparam FF_CAL = 2'd2;
+    localparam DONE = 2'd3;
 
   reg read_done;
 
@@ -39,13 +40,33 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
 
   always@(posedge clk)
   begin
+    if(reset) current_st <= NON_READ;
+    else current_st <= next_st;
+  end
+  
+  always@(*)
+  begin
+    if(reset) next_st = NON_READ;
+    else
+    begin
+      case(current_st)
+        NON_READ : if(write) next_st = READING; else next_st = NON_READ;
+        READING  : if(!write) next_st = FF_CAL; else next_st = READING;
+        FF_CAL   : if(ff_valid) next_st = DONE; else next_st = FF_CAL;
+        DONE     : next_st = NON_READ;
+        default  : ;//Do Nothing
+      endcase
+    end
+  end
+
+  always@(posedge clk)
+  begin
       if(reset)
       begin
         s_index <= 0;
         p_index <= 0;
         str_last_idx <= 0;
         pat_last_idx <= 0;
-        active <= NON_READ;
         valid <= 0;
         read_done <= 0;
 
@@ -62,7 +83,6 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
       
       else if(write)
       begin
-        active <= READING;
         read_done <= 0;
         valid <= 0;
         case(w_sel)
@@ -74,11 +94,9 @@ module shared_memory(clk, reset, w_data, write, w_sel, str_reg, pat_reg, str_las
 
       else
       begin
-        if(active == READING) begin active <= FF_CAL; read_done <= 1; end
-        else if(active == FF_CAL)begin if(ff_valid) begin active <= DONE;  end end
-        else if(active == DONE) begin active <= NON_READ; valid <= 1; end
-        else begin active <= NON_READ; end
-
+        if(current_st == READING) begin read_done <= 1; end
+        else if(current_st == DONE) begin valid <= 1; end
+        
         s_index <= 0;
         p_index <= 0;
       end

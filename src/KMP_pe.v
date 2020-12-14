@@ -49,7 +49,7 @@ module KMP_pe(clk, reset, str_input, pat_input, input_valid, start_idx, process_
         INIT_PRO_IDX: next_st = COM_ST;
         COM_ST: if(done) next_st = DONE_ST; else next_st = COM_ST;
         DONE_ST: if(!input_valid) next_st = IDLE_ST; else next_st = DONE_ST;
-        default : ;// Do Nothing
+        default : next_st = IDLE_ST;// Do Nothing
       endcase
     end
   end

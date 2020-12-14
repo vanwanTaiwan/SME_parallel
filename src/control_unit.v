@@ -66,8 +66,9 @@ begin
   begin
     if(input_valid)
     begin
-      if(pe_done_distri)begin pe_valid <= 1; pe_done_distri <= 0; end else ;
-      if(remaining > pat_last_idx)
+      if(pe_done_distri)begin pe_valid <= 1; end else ;
+      
+      if(remaining > { {(`MAX_STR_ADD - `MAX_PAT_ADD){1'b0}} ,pat_last_idx})
       begin
         pe_done_distri <= 1;
 
@@ -116,7 +117,7 @@ begin
         o_done <= 1;
         o_match_idx <= compare_result;
       end
-      if(o_done)begin o_valid <= 1; o_done <= 0; end else o_valid <= 0;
+      if(o_done)begin o_valid <= 1; end else o_valid <= 0;
     end
 
     else
