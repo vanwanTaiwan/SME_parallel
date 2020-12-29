@@ -2,16 +2,17 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Dec  8 23:55:37 2020
-# Process ID: 4172
-# Current directory: C:/Users/USER/Desktop/git/SME_parallel/vivado_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19344 C:\Users\USER\Desktop\git\SME_parallel\vivado_project\SME_parallel.xpr
-# Log file: C:/Users/USER/Desktop/git/SME_parallel/vivado_project/vivado.log
-# Journal file: C:/Users/USER/Desktop/git/SME_parallel/vivado_project\vivado.jou
+# Start of session at: Tue Dec 29 10:57:19 2020
+# Process ID: 10092
+# Current directory: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9176 C:\Users\Alan\Desktop\git\SME_parallel\vivado_project\SME_parallel.xpr
+# Log file: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/vivado.log
+# Journal file: C:/Users/Alan/Desktop/git/SME_parallel/vivado_project\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/USER/Desktop/git/SME_parallel/vivado_project/SME_parallel.xpr
+open_project C:/Users/Alan/Desktop/git/SME_parallel/vivado_project/SME_parallel.xpr
 update_compile_order -fileset sources_1
+launch_simulation
 launch_simulation
 source testfixture.tcl
 run all

@@ -139,4 +139,4 @@ Time resolution is 1 ps
 -- Simulation finish, ALL PASS  --
 -- cycle =1898 , Score =122       --
 ----------------------------------
-$finish called at time : 18980 ns : File "C:/Users/USER/Desktop/git/SME_parallel/test_bench/sme_tb.sv" Line 201
+$finish called at time : 18980 ns : File "C:/Users/Alan/Desktop/git/SME_parallel/test_bench/sme_tb.sv" Line 201
