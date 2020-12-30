@@ -1,8 +1,10 @@
+`include "../src/SME_spec_param.v"
+
 `timescale 1ns/10ps
 `define CYCLE      10.0  
 `define SDFFILE    "./SME_syn.sdf"
 `define End_CYCLE  1000000
-`define PAT        "test_pattern5.txt"
+`define PAT        "test_pattern.txt"
 module testfixture();
 
 integer linedata;
@@ -22,7 +24,7 @@ reg [7:0] chardata;
 reg isstring=0;
 reg ispattern=0;
 wire match;
-wire [4:0] match_index;
+wire [`MAX_STR_ADD - 1 : 0] match_index;
 SME u_SME (.clk(clk),
            .reset(reset),
            .chardata(chardata),

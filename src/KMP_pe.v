@@ -16,9 +16,9 @@ module KMP_pe(clk, reset, str_input, pat_input, input_valid, start_idx, process_
   output reg [`MAX_STR_ADD - 1 : 0] match_idx;
   //---------------------input/output---------------------//
 
-  localparam NUM_STATE = 3;
-  reg [NUM_STATE - 1 : 0] current_st;
-  reg [NUM_STATE - 1 : 0] next_st;
+  localparam NUM_STATE = 4;
+  reg [NUM_STATE - 2 : 0] current_st;
+  reg [NUM_STATE - 2 : 0] next_st;
     localparam IDLE_ST = 3'b000;
     localparam INIT_PRO_IDX = 3'b001;
     localparam COM_ST = 3'b010;

@@ -6,137 +6,104 @@ Time resolution is 1 ps
   __________________________________________________________
   == String 1  "GCGTCCTAGCGATCACCGGGACACAGTGGCGC"
   -- Pattern 1  "GACGA"
-       cycle 49, expect(0,--) , get(0,--) >> Pass
+       cycle 4b, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "GGGGG"
-       cycle 6e, expect(0,--) , get(0,--) >> Pass
+       cycle 72, expect(0,--) , get(0,--) >> Pass
   -- Pattern 3  "T"
-       cycle 83, expect(1,03) , get(1,03) >> Pass
+       cycle 92, expect(1,03) , get(1,03) >> Pass
   -- Pattern 4  "TCACC"
-       cycle a6, expect(1,0c) , get(1,0c) >> Pass
+       cycle c0, expect(1,0c) , get(1,0c) >> Pass
   -- Pattern 5  "TTAC"
-       cycle c6, expect(0,--) , get(0,--) >> Pass
+       cycle e2, expect(0,--) , get(0,--) >> Pass
   -- Pattern 6  "ATCGGG"
-       cycle ed, expect(0,--) , get(0,--) >> Pass
+       cycle 10b, expect(0,--) , get(0,--) >> Pass
   -- Pattern 7  "TCA"
-       cycle 10a, expect(1,0c) , get(1,0c) >> Pass
+       cycle 133, expect(1,0c) , get(1,0c) >> Pass
   -- Pattern 8  "CCTGG"
-       cycle 12f, expect(0,--) , get(0,--) >> Pass
+       cycle 15a, expect(0,--) , get(0,--) >> Pass
   -- Pattern 9  "GTGG"
-       cycle 150, expect(1,19) , get(1,19) >> Pass
+       cycle 186, expect(1,19) , get(1,19) >> Pass
   -- Pattern a  "TCCAAC"
-       cycle 176, expect(0,--) , get(0,--) >> Pass
+       cycle 1ae, expect(0,--) , get(0,--) >> Pass
   __________________________________________________________
   == String 2  "GACTTCATATGAGCT"
   -- Pattern 1  "TTAG"
-       cycle 1a0, expect(0,--) , get(0,--) >> Pass
+       cycle 1da, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "GGC"
-       cycle 1b8, expect(0,--) , get(0,--) >> Pass
+       cycle 1f4, expect(0,--) , get(0,--) >> Pass
   -- Pattern 3  "AC"
-       cycle 1cc, expect(1,01) , get(1,01) >> Pass
+       cycle 213, expect(1,01) , get(1,01) >> Pass
   -- Pattern 4  "CTTCTA"
-       cycle 1ed, expect(0,--) , get(0,--) >> Pass
+       cycle 236, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  "CTT"
-       cycle 204, expect(1,02) , get(1,02) >> Pass
+       cycle 258, expect(1,02) , get(1,02) >> Pass
   -- Pattern 6  "AG"
-       cycle 21a, expect(1,0b) , get(1,0b) >> Pass
+       cycle 279, expect(1,0b) , get(1,0b) >> Pass
   -- Pattern 7  "ACTTC"
-       cycle 238, expect(1,01) , get(1,01) >> Pass
+       cycle 2a2, expect(1,01) , get(1,01) >> Pass
   -- Pattern 8  "CGAC"
-       cycle 252, expect(0,--) , get(0,--) >> Pass
+       cycle 2be, expect(0,--) , get(0,--) >> Pass
   -- Pattern 9  "TA"
-       cycle 268, expect(1,07) , get(1,07) >> Pass
+       cycle 2df, expect(1,07) , get(1,07) >> Pass
   -- Pattern a  "TTAGATTC"
-       cycle 291, expect(0,--) , get(0,--) >> Pass
+       cycle 30a, expect(0,--) , get(0,--) >> Pass
   __________________________________________________________
   == String 3  "CGTACCGCGGGGGAGAAGCTTCC"
   -- Pattern 1  "T"
-       cycle 2ba, expect(1,02) , get(1,02) >> Pass
+       cycle 33e, expect(1,02) , get(1,02) >> Pass
   -- Pattern 2  "CCGC"
-       cycle 2d7, expect(1,04) , get(1,04) >> Pass
+       cycle 366, expect(1,04) , get(1,04) >> Pass
   -- Pattern 3  "A"
-       cycle 2e9, expect(1,03) , get(1,03) >> Pass
+       cycle 383, expect(1,03) , get(1,03) >> Pass
   -- Pattern 4  "GCGACAG"
-       cycle 313, expect(0,--) , get(0,--) >> Pass
+       cycle 3af, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  "GGG"
-       cycle 32e, expect(1,08) , get(1,08) >> Pass
+       cycle 3d5, expect(1,08) , get(1,08) >> Pass
   -- Pattern 6  "ACCGCGGG"
-       cycle 358, expect(1,03) , get(1,03) >> Pass
+       cycle 40a, expect(1,03) , get(1,03) >> Pass
   -- Pattern 7  "GTA"
-       cycle 374, expect(1,01) , get(1,01) >> Pass
+       cycle 431, expect(1,01) , get(1,01) >> Pass
   -- Pattern 8  "GGCCCGTT"
-       cycle 3a2, expect(0,--) , get(0,--) >> Pass
+       cycle 461, expect(0,--) , get(0,--) >> Pass
   -- Pattern 9  "ACTCATTT"
-       cycle 3cc, expect(0,--) , get(0,--) >> Pass
+       cycle 48d, expect(0,--) , get(0,--) >> Pass
   -- Pattern a  "GG"
-       cycle 3e4, expect(1,08) , get(1,08) >> Pass
+       cycle 4b0, expect(1,08) , get(1,08) >> Pass
   __________________________________________________________
   == String 4  "CTAATGCTCCCAAAC"
   -- Pattern 1  "AGTCG"
-       cycle 411, expect(0,--) , get(0,--) >> Pass
+       cycle 4df, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "T"
-       cycle 421, expect(1,01) , get(1,01) >> Pass
+       cycle 4fa, expect(1,01) , get(1,01) >> Pass
   -- Pattern 3  "TATGGGC"
-       cycle 445, expect(0,--) , get(0,--) >> Pass
+       cycle 520, expect(0,--) , get(0,--) >> Pass
   -- Pattern 4  "GGACCTA"
-       cycle 468, expect(0,--) , get(0,--) >> Pass
+       cycle 545, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  "CCC"
-       cycle 480, expect(1,08) , get(1,08) >> Pass
+       cycle 568, expect(1,08) , get(1,08) >> Pass
   -- Pattern 6  "TGTGCTC"
-       cycle 4a4, expect(0,--) , get(0,--) >> Pass
+       cycle 58e, expect(0,--) , get(0,--) >> Pass
   -- Pattern 7  "CA"
-       cycle 4ba, expect(1,0a) , get(1,0a) >> Pass
+       cycle 5af, expect(1,0a) , get(1,0a) >> Pass
   -- Pattern 8  "CAA"
-       cycle 4d2, expect(1,0a) , get(1,0a) >> Pass
+       cycle 5d2, expect(1,0a) , get(1,0a) >> Pass
   -- Pattern 9  "GATTGAGA"
-       cycle 4f8, expect(0,--) , get(0,--) >> Pass
+       cycle 5fa, expect(0,--) , get(0,--) >> Pass
   -- Pattern a  "CA"
-       cycle 50e, expect(1,0a) , get(1,0a) >> Pass
+       cycle 61b, expect(1,0a) , get(1,0a) >> Pass
   __________________________________________________________
   == String 5  "ATCGCGTTAGTCCTTACA"
   -- Pattern 1  "CATTAGA"
-       cycle 545, expect(0,--) , get(0,--) >> Pass
+       cycle 654, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "GG"
-       cycle 55b, expect(0,--) , get(0,--) >> Pass
+       cycle 66c, expect(0,--) , get(0,--) >> Pass
   -- Pattern 3  "TACA"
-       cycle 577, expect(1,0e) , get(1,0e) >> Pass
+       cycle 693, expect(1,0e) , get(1,0e) >> Pass
   -- Pattern 4  "ATCCGCCT"
-       cycle 59f, expect(0,--) , get(0,--) >> Pass
+       cycle 6bd, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  "CGCCTGC"
-       cycle 5c4, expect(0,--) , get(0,--) >> Pass
+       cycle 6e4, expect(0,--) , get(0,--) >> Pass
   -- Pattern 6  "TT"
-       cycle 5da, expect(1,06) , get(1,06) >> Pass
+       cycle 705, expect(1,06) , get(1,06) >> Pass
   -- Pattern 7  "CGC"
-       cycle 5f2, expect(1,02) , get(1,02) >> Pass
-  -- Pattern 8  "GC"
-       cycle 607, expect(1,03) , get(1,03) >> Pass
-  -- Pattern 9  "CCGCACG"
-       cycle 62c, expect(0,--) , get(0,--) >> Pass
-  -- Pattern a  "CCGG"
-       cycle 648, expect(0,--) , get(0,--) >> Pass
-  __________________________________________________________
-  == String 6  "ACACGGAAGCTTTGTAACT"
-  -- Pattern 1  "TTCAC"
-       cycle 67b, expect(0,--) , get(0,--) >> Pass
-  -- Pattern 2  "ATGCACA"
-       cycle 6a2, expect(0,--) , get(0,--) >> Pass
-  -- Pattern 3  "ACG"
-       cycle 6bb, expect(1,02) , get(1,02) >> Pass
-  -- Pattern 4  "G"
-       cycle 6cd, expect(1,04) , get(1,04) >> Pass
-  -- Pattern 5  "CG"
-       cycle 6e2, expect(1,03) , get(1,03) >> Pass
-  -- Pattern 6  "GG"
-       cycle 6f7, expect(1,04) , get(1,04) >> Pass
-  -- Pattern 7  "C"
-       cycle 708, expect(1,01) , get(1,01) >> Pass
-  -- Pattern 8  "TCCCAT"
-       cycle 72c, expect(0,--) , get(0,--) >> Pass
-  -- Pattern 9  "TTCATG"
-       cycle 750, expect(0,--) , get(0,--) >> Pass
-  -- Pattern a  "TGT"
-       cycle 769, expect(1,0c) , get(1,0c) >> Pass
-----------------------------------
--- Simulation finish, ALL PASS  --
--- cycle =1898 , Score =122       --
-----------------------------------
-$finish called at time : 18980 ns : File "C:/Users/Alan/Desktop/git/SME_parallel/test_bench/sme_tb.sv" Line 201
+       cycle 728, expect(1,02) , get(1,02

@@ -6,7 +6,7 @@ input clk;
 input reset;
 input input_valid;
 input [`MAX_STR_ADD - 1: 0] str_last_idx;
-input [`MAX_PAT_ADD - 1: 0] pat_last_idx; // the same as "overlap"
+input [`MAX_PAT_ADD - 1: 0] pat_last_idx; // as same as "overlap size"
 
 input [`NUM_PE - 1 : 0] i_match_valid;
 input [`NUM_PE - 1 : 0] i_match;
@@ -23,9 +23,10 @@ output reg o_valid;
 output reg [`MAX_STR_ADD - 1 : 0] o_match_idx;
 //---------------------input/output---------------------//
 
+reg compare_valid;
 reg pe_done_distri;
 reg o_done;
-
+integer i, j;
 
 wire [`MAX_STR_ADD - 1: 0] num_part;
 assign num_part = (str_last_idx + 1) >> `DIVIDE_SHIFT;
@@ -33,21 +34,35 @@ assign num_part = (str_last_idx + 1) >> `DIVIDE_SHIFT;
 wire [`MAX_STR_ADD - 1: 0] remaining;
 assign remaining = (str_last_idx + 1) - (num_part * `NUM_PE);
 
-assign o_match = i_match[0] | i_match[1] | i_match[2] | i_match[3];
+assign o_match = (i_match == 0)?  0 : 1;
 
 wire [`NUM_PE  * (`MAX_STR_ADD + 1) - 1 : 0] match_idx_extension;
-wire [(`MAX_STR_ADD + 1) - 1 : 0] compare_1a, compare_1b, compare_result;
-assign match_idx_extension = { !i_match[0], i_match_idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD],
-                               !i_match[1], i_match_idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD],
-                               !i_match[2], i_match_idx[2 * `MAX_STR_ADD +: `MAX_STR_ADD],
-                               !i_match[3], i_match_idx[3 * `MAX_STR_ADD +: `MAX_STR_ADD]};
+genvar g_i;
+generate
+  for(g_i = 0; g_i < `NUM_PE; g_i = g_i + 1)
+  begin
+    assign match_idx_extension[(`MAX_STR_ADD + 1) * g_i +: (`MAX_STR_ADD + 1)] = { !i_match[g_i], i_match_idx[g_i * `MAX_STR_ADD +: `MAX_STR_ADD] };
+  end
+endgenerate
 
+wire [`MAX_STR_ADD - 1 : 0] compare_result;
+wire compare_done;
+
+PE_Result_Comparator comp1(
+  .clk(clk),
+  .reset(reset),
+  .pe_result(match_idx_extension),
+  .i_valid(compare_valid),
+  .output_result(compare_result),
+  .o_valid(compare_done));
+
+/*
 assign compare_1a = (match_idx_extension[0 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)] <= match_idx_extension[1 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)])?  
                     match_idx_extension[0 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)] : match_idx_extension[1 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)];
 assign compare_1b = (match_idx_extension[2 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)] <= match_idx_extension[3 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)])?  
                     match_idx_extension[2 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)] : match_idx_extension[3 * (`MAX_STR_ADD + 1) +: (`MAX_STR_ADD + 1)];
 assign compare_result = (compare_1a <= compare_1b)? compare_1a[0 +: `MAX_STR_ADD]:compare_1b[0 +: `MAX_STR_ADD];
-
+*/
 
 always@(posedge clk)
 begin
@@ -60,6 +75,7 @@ begin
     o_match_idx <= 0;
     pe_done_distri <= 0;
     o_done <= 0;
+    compare_valid <= 0;
   end
 
   else
@@ -69,31 +85,35 @@ begin
       if(pe_done_distri)begin pe_valid <= 1; pe_done_distri <= 0; end else ;
       if(remaining > pat_last_idx)
       begin
+
         pe_done_distri <= 1;
-
         start_idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 0;
-        start_idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD] <= num_part + remaining - pat_last_idx;
-        start_idx[2 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 2 * num_part + remaining - pat_last_idx;
-        start_idx[3 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 3 * num_part + remaining - pat_last_idx;
+        for(i = 1; i < `NUM_PE; i = i + 1)
+        begin
+          start_idx[i * `MAX_STR_ADD +: `MAX_STR_ADD] <= i * num_part + remaining - pat_last_idx;
+        end
 
-        process_2idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD] <= num_part + remaining - 1;
-        process_2idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 2 * num_part + remaining - 1;
-        process_2idx[2 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 3 * num_part + remaining - 1;
-        process_2idx[3 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 4 * num_part + remaining - 1;
+        for(j = 0; j < `NUM_PE; j = j + 1)
+        begin
+          process_2idx[j * `MAX_STR_ADD +: `MAX_STR_ADD] <= (j+1) * num_part + remaining - 1;
+        end
+
       end
       else
       begin
         pe_done_distri <= 1;
 
-        start_idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 0;
-        start_idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD] <= num_part;
-        start_idx[2 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 2 * num_part;
-        start_idx[3 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 3 * num_part;
+        for(i = 0; i < `NUM_PE; i = i + 1)
+        begin
+          start_idx[i * `MAX_STR_ADD +: `MAX_STR_ADD] <= i * num_part;
+        end
 
-        process_2idx[0 * `MAX_STR_ADD +: `MAX_STR_ADD] <= num_part + pat_last_idx - 1;
-        process_2idx[1 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 2 * num_part + pat_last_idx - 1;
-        process_2idx[2 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 3 * num_part + pat_last_idx - 1;
-        process_2idx[3 * `MAX_STR_ADD +: `MAX_STR_ADD] <= 4 * num_part + remaining - 1;
+        for(j = 0; j < `NUM_PE - 1; j = j + 1)
+        begin
+          process_2idx[j * `MAX_STR_ADD +: `MAX_STR_ADD] <= (j+1) * num_part + pat_last_idx - 1;
+        end
+        process_2idx[(`NUM_PE - 1) * `MAX_STR_ADD +: `MAX_STR_ADD] <= `NUM_PE * num_part + remaining - 1;
+
       end
     end
     else
@@ -112,18 +132,22 @@ begin
         o_match_idx <= 0;
       end
       else
-      begin
-        o_done <= 1;
-        o_match_idx <= compare_result;
+      begin//compare result
+        compare_valid <= 1;
+        if(compare_done)
+        begin
+          o_done <= 1;
+          o_match_idx <= compare_result;
+        end
       end
       if(o_done)begin o_valid <= 1; o_done <= 0; end else o_valid <= 0;
     end
-
     else
     begin
       o_done <= 0;
       o_valid <= 0;
       o_match_idx <= 0;
+      compare_valid <= 0;
     end
   end
 

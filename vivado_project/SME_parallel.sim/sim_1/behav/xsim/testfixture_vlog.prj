@@ -1,5 +1,6 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../../src/Comparator.v" \
 "../../../../../src/control_unit.v" \
 "../../../../../src/DP_FailFunc.v" \
 "../../../../../src/KMP_pe.v" \

@@ -23,7 +23,8 @@ module SME(
   wire input_valid;
   wire [`MAX_PAT_ADD * `MAX_PATTERN - 1 : 0] ff_result;
 
-  wire [`NUM_PE - 1 : 0] pe_valid;
+  wire pe_i_valid;
+  wire [`NUM_PE - 1 : 0] pe_o_valid;
   wire [`NUM_PE - 1 : 0] pe_match;
   wire [`NUM_PE * `MAX_STR_ADD - 1 : 0] pe_m_idx;
 
@@ -35,10 +36,10 @@ module SME(
                       .input_valid(input_valid),
                       .str_last_idx(str_last_index),
                       .pat_last_idx(pat_last_index),
-                      .i_match_valid(pe_valid),
+                      .i_match_valid(pe_o_valid),
                       .i_match(pe_match),
                       .i_match_idx(pe_m_idx),
-                      .pe_valid(pe_valid),
+                      .pe_valid(pe_i_valid),
                       .start_idx(pe_start_idx),
                       .process_2idx(pe_pro_2idx),
                       .o_match(match),
@@ -59,23 +60,21 @@ module SME(
 
   genvar i;
   generate
-    begin: pe_block
       for(i = 0; i < `NUM_PE; i = i + 1)
       begin
       KMP_pe pe(.clk(clk),
                 .reset(reset),
                 .str_input(str), 
                 .pat_input(pat),
-                .input_valid(input_valid),
+                .input_valid(pe_i_valid),
                 .start_idx( pe_start_idx[i * `MAX_STR_ADD +: `MAX_STR_ADD] ),
                 .process_2idx( pe_pro_2idx[i * `MAX_STR_ADD +: `MAX_STR_ADD] ),
                 .pat_last_idx(pat_last_index),
                 .ff_result(ff_result),
-                .output_valid( pe_valid[i] ),
+                .output_valid( pe_o_valid[i] ),
                 .match( pe_match[i] ),
                 .match_idx(pe_m_idx[i * `MAX_STR_ADD +: `MAX_STR_ADD]));
       end
-    end
   endgenerate
 
 endmodule
